@@ -1,5 +1,5 @@
-import { debounce } from 'lodash';
-import { useState, useEffect } from 'react';
+import { debounce } from 'lodash-es';
+import { useEffect, useState } from 'react';
 
 /**
  * A React hook that manages the state of a sticky navbar based on the user's scroll position.
