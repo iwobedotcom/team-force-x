@@ -67,6 +67,7 @@ body {
   padding: 0;
   line-height: 1.6;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 a {
