@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Mont Alt';
+  src: url('/fonts/MontserratAlternates-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont Alt';
+  src: url('/fonts/MontserratAlternates-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/OpenSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/**
+ * Styles for various UI components in the application.
+ *
+ * - Styles a checked checkbox to display its SVG icon.
+ * - Styles the header logo when the page is scrolled (sticky).
+ * - Styles the active state of the menu scroll component.
+ * - Styles the toggle dot for a plan selection input.
+ * - Styles the checked state of a checkbox label.
+ */
+@layer components {
+  input[type='checkbox']:checked ~ label span svg {
+    @apply inline-flex;
+  }
+
+  .sticky .header-logo {
+    @apply py-5 lg:py-2;
+  }
+
+  .sticky .menu-scroll.active {
+    @apply opacity-70;
+  }
+
+  input#togglePlan:checked ~ .dot {
+    @apply translate-x-full;
+  }
+
+  input#checkboxLabel:checked ~ .box span {
+    @apply opacity-100;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glassmorphism-dark {
+  background: rgba(102, 36, 209, 0.72);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(102, 36, 209, 0.3);
+}
+
+@media screen and (max-width: 767px) {
+  /**
+   * Ensures that elements with the `data-aos` attribute have their pointer events and transform/opacity properties restored to their default values.
+   * This is likely used to undo any AOS (Animate On Scroll) animations or effects that were applied to the elements.
+   */
+  [data-aos] {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.image-zoom {
+  transform: scale(1);
+  animation: zoom-animation 20s infinite ease-in-out;
+}
+
+@keyframes zoom-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.image-tilt {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+  transition: transform 0.5s ease;
+}
+
+.image-tilt:hover {
+  transform: perspective(1000px) rotateY(10deg) rotateX(10deg);
+}
+
+@keyframes tilt-animation {
+  0% {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(10deg) rotateX(10deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+  }
+}
+
+.image-tilt {
+  animation: tilt-animation 10s infinite ease-in-out;
+}

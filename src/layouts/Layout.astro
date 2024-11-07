@@ -1,0 +1,82 @@
+---
+import { getEntry } from 'astro:content';
+import Footer from '../components/footer';
+import Header from '../components/header';
+
+import '../styles/global.css';
+import 'aos/dist/aos.css'; // Add this import
+import ScrollToTop from '../components/common/scroll-to-top';
+
+const { data } = await getEntry('metadata', 'main');
+const {
+  metadata: { author, description, keywords, language, title }
+} = data;
+---
+
+<!doctype html>
+<html lang={language}>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-1RGGJG5CQ8"></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-1RGGJG5CQ8');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(', ')} />
+    <meta name="author" content={author} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="language" content={language} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content={author} />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#6624d1" />
+
+    <link
+      rel="preload"
+      href="/fonts/MontserratAlternates-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/MontserratAlternates-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" href={`${Astro.site}/rss.xml`} title={title} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header client:load />
+    <slot />
+    <Footer client:visible />
+    <ScrollToTop client:only />
+
+    <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    </script>
+    <script src="../../node_modules/preline/dist/preline.js"></script>
+  </body>
+</html>
