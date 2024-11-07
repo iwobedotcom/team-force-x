@@ -74,14 +74,41 @@ const Header = () => {
    */
   const renderButtonLinks = () => (
     <>
-      <ButtonLink label="Login" to="#" size={ButtonSize.Medium} variant="link" color="text-white" />
-      <ButtonLink
-        label="Sign Up"
-        to="#"
-        size={ButtonSize.Medium}
-        variant="button"
-        color="text-white"
-      />
+      {isMobile ? (
+        <>
+          <ButtonLink
+            label="Sign Up"
+            to="#"
+            size={ButtonSize.Medium}
+            variant="button"
+            color="text-white"
+          />
+          <ButtonLink
+            label="Login"
+            to="#"
+            size={ButtonSize.Medium}
+            variant="link"
+            color="text-white"
+          />
+        </>
+      ) : (
+        <>
+          <ButtonLink
+            label="Login"
+            to="#"
+            size={ButtonSize.Medium}
+            variant="link"
+            color="text-white"
+          />
+          <ButtonLink
+            label="Sign Up"
+            to="#"
+            size={ButtonSize.Medium}
+            variant="button"
+            color="text-white"
+          />
+        </>
+      )}
     </>
   );
 
