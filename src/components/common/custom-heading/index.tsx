@@ -1,5 +1,3 @@
-
-
 /**
  * A custom heading component that renders a title and an optional paragraph.
  *
@@ -12,8 +10,8 @@
  * @returns A React component that renders the custom heading.
  */
 
-import { useMediaQueries } from "../../../hooks/useMediaQueries";
-import type { CustomHeadingProp } from "../../../types";
+import { useMediaQueries } from '../../../hooks/useMediaQueries';
+import type { CustomHeadingProp } from '../../../types';
 
 const CustomHeading = ({
   title,
@@ -35,7 +33,7 @@ const CustomHeading = ({
       className={`relative flex flex-col left-0 top-0 ${center ? 'justify-center items-center' : 'justify-start items-start'}`}
     >
       <h1
-        className={`${isMobile ? 'mb-1' : 'mb-4'} font-bold font-neue ${sizeClasses[size]} ${className}`}
+        className={`${isMobile ? 'mb-0' : 'mb-4'} font-bold font-neue ${sizeClasses[size]} ${className}`}
         data-aos="fade-up"
       >
         {title}
@@ -43,7 +41,7 @@ const CustomHeading = ({
       </h1>
       {paragraph && (
         <p
-          className={`mb-4 max-w-3xl text-base font-medium leading-relaxed sm:leading-relaxed sm:text-lg ${paragraphColor} ${isMobile ? 'mr-auto' : ''}`}
+          className={`mb-4 max-w-3xl text-base font-medium leading-relaxed sm:leading-relaxed sm:text-lg ${paragraphColor} ${isMobile ? '' : ''}`}
           data-aos="fade-up"
           data-aos-delay="200"
         >
