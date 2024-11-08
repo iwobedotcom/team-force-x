@@ -1,6 +1,5 @@
-import CustomHeading from "../../common/custom-heading";
-import CustomSection from "../../common/custom-section";
-
+import CustomHeading from '../../common/custom-heading';
+import CustomSection from '../../common/custom-section';
 
 /**
  * Renders a section for displaying payment methods on the home page.
@@ -22,7 +21,7 @@ const PaymentMethods = () => {
           title="All major payment methods"
           paragraph="We've got all your payments covered"
           size="large"
-          className="w-full md:w-2/3  text-center mx-auto mb-12"
+          className="w-full md:w-2/3  text-center mx-auto"
         />
       </div>
       <div className="relative w-full overflow-hidden">
