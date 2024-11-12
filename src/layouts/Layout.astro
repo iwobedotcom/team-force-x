@@ -6,6 +6,7 @@ import Header from '../components/header';
 import '../styles/global.css';
 import 'aos/dist/aos.css'; // Add this import
 import ScrollToTop from '../components/common/scroll-to-top';
+import AppLoader from '../components/common/app-loader';
 
 const { data } = await getEntry('metadata', 'main');
 const {
@@ -64,10 +65,11 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <Header client:load />
+    <AppLoader client:load />
+    <Header client:idle />
     <slot />
-    <Footer client:visible />
-    <ScrollToTop client:only />
+    <Footer client:idle />
+    <ScrollToTop client:only="react" />
 
     <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script is:inline>
@@ -77,6 +79,6 @@ const {
         offset: 100
       });
     </script>
-    <script src="../../node_modules/preline/dist/preline.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/preline@2.5.1/dist/preline.min.js"></script>
   </body>
 </html>

@@ -111,7 +111,11 @@ const Services = () => {
   const { isMobile } = useMediaQueries();
 
   return (
-    <CustomSection id="services" className="bg-body-color-dark pb-16" waveColor="#ffffff">
+    <CustomSection
+      id="services"
+      className="bg-body-color-dark pb-16 overflow-x-hidden"
+      waveColor="#ffffff"
+    >
       <div className="flex flex-col md:flex-row justify-between w-full">
         <div className="w-full md:w-1/2 mb-8 md:mb-0">
           <CustomHeading

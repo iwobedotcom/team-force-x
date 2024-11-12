@@ -75,17 +75,10 @@ const Contact = () => {
                 </div>
 
                 <div className="relative flex flex-col left-0 top-0 justify-center items-center">
-                  <h1
-                    className="mb-1 text-white font-bold font-neue text-2xl sm:text-4xl"
-                    data-aos="fade-up"
-                  >
+                  <h1 className="mb-1 text-white font-bold font-neue text-2xl sm:text-4xl">
                     Thank you for your message!<span className="text-primary">.</span>
                   </h1>
-                  <p
-                    className="mb-4 max-w-3xl text-base font-medium leading-relaxed sm:leading-relaxed sm:text-lg text-white mr-auto"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
+                  <p className="mb-4 max-w-3xl text-base font-medium leading-relaxed sm:leading-relaxed sm:text-lg text-white mr-auto">
                     Sit tight—we&apos;re already on it! Our team is excited to get back to you and
                     will reach out as soon as we can. We can’t wait to connect!
                   </p>

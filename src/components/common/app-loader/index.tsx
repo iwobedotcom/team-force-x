@@ -1,34 +1,33 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-/**
- * A loading spinner component that is displayed when the application is loading.
- * This component is used to provide a visual indication to the user that the application is in a loading state.
- * It is typically used when the application is fetching data or performing other asynchronous operations.
- * The loading spinner is centered on the screen and has a semi-transparent background to draw the user's attention.
- */
 const AppLoader = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3000); // 3 seconds delay - adjust as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) return null;
+
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75 z-50">
-      <svg
-        className="animate-spin h-12 w-12 text-primary"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <circle
-          className="opacity-25"
-          cx="12"
-          cy="12"
-          r="10"
-          stroke="currentColor"
-          strokeWidth="4"
-        ></circle>
-        <path
-          className="opacity-75"
-          fill="currentColor"
-          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-        ></path>
-      </svg>
+    <div className="fixed inset-0 flex items-center justify-center bg-primary z-[9999]">
+      <div className="relative w-24 h-24">
+        {/* Outermost circle */}
+        <div className="absolute inset-0 rounded-full bg-white/20 animate-[ping_2s_ease-in-out_infinite]" />
+
+        {/* Second circle */}
+        <div className="absolute inset-2 rounded-full bg-white/30 animate-[ping_2s_ease-in-out_infinite_200ms]" />
+
+        {/* Third circle */}
+        <div className="absolute inset-4 rounded-full bg-white/40 animate-[ping_2s_ease-in-out_infinite_400ms]" />
+
+        {/* Core circle - doesn't animate */}
+        <div className="absolute inset-6 rounded-full bg-white animate-[ping_2s_ease-in-out_infinite_600ms]"></div>
+      </div>
     </div>
   );
 };

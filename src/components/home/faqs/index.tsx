@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { faqs } from "../../../data/faqs";
-import { useMediaQueries } from "../../../hooks/useMediaQueries";
-import { ButtonSize } from "../../../types";
-import ButtonLink from "../../common/buttons/button-link";
-import CustomHeading from "../../common/custom-heading";
-import CustomSection from "../../common/custom-section";
-import FAQItem from "./faq-item";
+import { useState } from 'react';
+import { faqs } from '../../../data/faqs';
+import { useMediaQueries } from '../../../hooks/useMediaQueries';
+import { ButtonSize } from '../../../types';
+import ButtonLink from '../../common/buttons/button-link';
+import CustomHeading from '../../common/custom-heading';
+import CustomSection from '../../common/custom-section';
+import FAQItem from './faq-item';
 
 /**
  * Renders the FAQs (Frequently Asked Questions) section of the home page.
@@ -19,7 +19,11 @@ const FAQs = () => {
   const [openIndex, setOpenIndex] = useState(1);
 
   return (
-    <CustomSection id="faqs" className="bg-white relative z-10 pb-72" waveColor="#ffffff">
+    <CustomSection
+      id="faqs"
+      className="bg-white relative z-10 pb-72 overflow-x-hidden"
+      waveColor="#ffffff"
+    >
       <div className="md:grid md:grid-cols-2 md:items-start md:gap-12 xl:gap-32">
         <div className="mt-5 sm:mt-10 lg:mt-0">
           <div className="space-y-1 sm:space-y-3 sticky top-0">
