@@ -3,6 +3,9 @@
   "author": "Team Fox",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -27,7 +30,7 @@
     "lodash-es": "^4.17.21",
     "preline": "^2.5.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1" 
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
